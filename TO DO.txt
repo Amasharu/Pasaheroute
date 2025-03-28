@@ -1,0 +1,42 @@
+To do:
+
+Account:
+-kaya makapag save ng mga bago account(backen)
+kaya masave ng profile picture at info ng user at mag ssave sa backend or vice versa ttignan ng user ang account sa web
+
+- kaya madisplay yung inf pero kaya lang ng user mag lagay or mag edit ng info sa (Birthday: Contact Number: Address:)
+Load:
+-kapag nag input ng load ay mappunta sa account(Backend file)
+
+Book Trip:
+-Dynamic yung calculation ng time at ng passenger seat available
+
+Notification:
+dito mag rregister yung notif sa user kapag (frontend <->backend):
+
+-kapag nakabayad na or interruption at hindi pa nakakapag bayad or kulang ang load ng user 
+(icclick para makapag bayad)
+(terminate the trans after a minute)
+
+
+Transaction:
+-dito mag register yung time at control number kapag successful payment(kunwari lang para mapara madali sa control number)
+
+-dito din makkita yung qr code [click the successful payment to show qr code para mascan ng hardware(mag ssend ng file papunta sa sever)]
+
+Main Page:
+Makikita dun yung balance ng user
+
+
+Token
+-para sa logout at idle ng web para maglogout
+
+Hosting Ng Website
+
+
+
+(Kung kaya pa gawin)
+Mag ssend ng notif thru text sa user:
+-Kapag nka pag bayad
+-Ma nnotif kapag malapit na ang bus sa destination
+-Mag ttext ulit for last call sa user na aalis na ang bus
