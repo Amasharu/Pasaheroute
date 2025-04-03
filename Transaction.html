@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TRANSACTION | PASAHEROUTE</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="Transaction.css" />
+    <link rel="icon" type="Web/Icon" href="Image/Web_Icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- <script src="Idle.js"></script> -->
+    <script src="logout.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="logo-container">
+          <div class="logo">
+            <a href="main.html"><img src="Image/logo.png" alt="logo" /></a>
+          </div>
+          <div class="logo_name">PASAHEROUTE</div>
+        </div>
+        <div class="navigation">
+          <nav>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="livelocation.html">Live Location</a></li>
+              <li><a href="Notification.html">Notification</a></li>
+              <li><a href="User_account.html">Account</a></li>
+            </ul>
+          </nav>
+          <button class="Logout-button" id="logoutBtn">Log Out</button>
+        </div>
+      </header>
+      <main class="trans-content">
+        <div class="trans-contain">
+          <h1>Transaction</h1>
+          <div class="pasaheroute-card">
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <img src="Card/Front.png" alt="card_front" />
+                </div>
+                <div class="card-back">
+                  <img src="Card/Back.png" alt="card_back" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2>History</h2>
+          <div class="data-trans"></div>
+        </div>
+      </main>
+      <footer class="footer">
+        <button class="Home" onclick="location.href='main.html'">
+          <i class="fa-solid fa-house" style="color: #ffffff"></i>
+        </button>
+        <button class="Bus" onclick="location.href='livelocation.html'">
+          <i class="fa-solid fa-bus" style="color: #ffffff"></i>
+        </button>
+
+        <button class="Notice" onclick="location.href='Notification.html'">
+          <i class="fa-solid fa-bell" style="color: #ffffff"></i>
+        </button>
+
+        <button class="Account" onclick="location.href='User_account.html'">
+          <i class="fa-solid fa-user" style="color: #ffffff"></i>
+        </button>
+      </footer>
+    </div>
+  </body>
+</html>

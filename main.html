@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PASAHEROUTE</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="Web/Icon" href="Image/Web_Icon.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="News_Content/content.css">
+    <link rel="stylesheet" href="News_Content/slider.css">
+    <script src="News_Content/popup.js"></script>
+    <script src="visible.js"></script>
+    <!-- <script src="Idle.js"></script> -->
+    <!-- <script src="logout.js"></script> -->
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="logo-container">
+          <div class="logo">
+            <a href="main.html"><img src="Image/logo.png" alt="logo"></a>
+          </div>
+          <div class="logo_name">PASAHEROUTE</div>
+        </div>
+        <div class="navigation">
+          <nav>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="livelocation.html">Live Location</a></li>
+              <li><a href="Notification.html">Notification</a></li>
+              <li><a href="User_account.html">Account</a></li>
+            </ul>
+          </nav>
+          <button class="Logout-button" id="logoutBtn">Log Out</button>
+        </div>
+      </header>
+      <main class="main-content">
+        <section class="fare-balance">
+          <div class="balance-container">
+            <div class="balance-info">
+              <h2>₱500.00</h2>
+              <p>
+                Fare Balance <span class="balance-class">Regular Class</span>
+              </p>
+            </div>
+            <button class="eye-button">👁</button>
+          </div>
+          <div class="fare-actions">
+            <div class="Buy_Load">
+              <a href="load.html">
+                <img src="Image/Buy_Load.png" alt="Buy Load" draggable="false">
+              </a>
+              <p>Buy Load</p>
+            </div>
+            <div class="Check_Track">
+              <a href="Transaction.html">
+                <img
+                  src="Image/Checking_Transaction.png"
+                  alt="Check Transaction"
+                  draggable="false"
+                />
+              </a>
+              <p>Check Transaction</p>
+            </div>
+            <div class="Book_Trip">
+              <a href="booktrip.html">
+                <img src="Image/Booking_Trip.png" alt="Booking Trip" draggable="false">
+              </a>
+              <p>Booking Trip</p>
+            </div>
+            <div class="Get_Card">
+              <a href="getcard.html">
+                <img src="Image/Getting_Card.png" alt="Getting Card" draggable="false">
+              </a>
+              <p>Getting Card</p>
+            </div>
+          </div>
+        </section>
+        <section class="exclusive">
+          <h3>PASAHEROUTE EXCLUSIVE</h3>
+          <div class="exclusive-items">
+            <div class="eBuy_Load">
+              <a href="load.html">
+                <img src="Image/Buy_Load.png" alt="Buy Load" draggable="false">
+              </a>
+              <p>Buy Load</p>
+            </div>
+            <div class="Check_Bal">
+              <a href="Transaction.html">
+                <img src="Image/Checking_Transaction.png" alt="Checking Transaction" draggable="false">
+              </a>
+              <p>Check Transaction</p>
+            </div>
+            <div class="Book_Trip">
+              <a href="booktrip.html">
+                <img src="Image/Booking_Trip.png" alt="Booking Trip" draggable="false">
+              </a>
+              <p>Booking Trip</p>
+            </div>
+            <div class="Get_Card">
+              <a href="getcard.html">
+                <img src="Image/Getting_Card.png" alt="Getting Card" draggable="false">
+              </a>
+              <p>Getting Card</p>
+            </div>
+          </div>
+        </section>
+        <section class="news">
+          <h3>PASAHEROUTE NEWS</h3>
+          <div class="slide_news">
+            <div class="card-slider swiper">
+              <div class="slider-wrapper">
+                <div class="card-list swiper-wrapper">
+                  <div class="card-item swiper-slide">
+                    <img
+                      src="News/motorist.webp"
+                      alt="Developer"
+                      class="card-image"
+                    />
+                    <div class="card-details">
+                      <h3 class="card-title">News</h3>
+                      <p class="card-description">
+                        Truck falls on its side on NLEX northbound; traffic tail
+                        end reaches Valenzuela
+                      </p>
+                      <button class="card-button" data-modal="modal-1">
+                        Read More
+                      </button>
+
+                      <!-- Modal (This will be moved inside <body>) -->
+                      <div id="modal-1" class="modal-overlay">
+                        <div class="modal">
+                          <!-- Close Button -->
+                          <div class="modal-close" onclick="closeModal()">
+                            ✖
+                          </div>
+
+                          <!-- Modal Title -->
+                          <div class="modal-title">
+                            <h1>
+                              Truck falls on its side on NLEX northbound;
+                              traffic tail end reaches Valenzuela
+                            </h1>
+                          </div>
+
+                          <!-- Modal Content -->
+                          <div class="modal-content">
+                            <img src="News/motorist.webp" alt="News">
+                            <h6>
+                              Scoured By:
+                              https://www.gmanetwork.com/news/topstories/regions/934954/truck-falls-on-its-side-on-nlex-northbound-traffic-tail-end-reaches-valenzuela/story/
+                            </h6>
+                            <p>
+                              A truck fell on its side while on the northbound
+                              lane of North Luzon Expressway (NLEX) in
+                              Meycauayan, Bulacan at around 6 a.m. on Monday.
+                              Video posted by GMA Integrated News reporter James
+                              Agustin on X showed that several boxes fell from
+                              the truck onto the road. A rescue vehicle has
+                              already responded and is on site as of posting
+                              time. The tail end of the traffic has reached
+                              Valenzuela City. —KG, GMA Integrated News
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-item swiper-slide" id="photographer">
+                    <img
+                      src="News/Nlex.png"
+                      alt="Photographer"
+                      class="card-image"
+                    />
+                    <div class="card-details">
+                      <h3 class="card-title">News</h3>
+                      <p class="card-description">
+                        Truck overturns on NLEX northbound lane, causes heavy
+                        traffic
+                      </p>
+                      <button class="card-button" data-modal="modal-2">
+                        Read More
+                      </button>
+
+                      <!-- Modal (This will be moved inside <body>) -->
+                      <div id="modal-2" class="modal-overlay">
+                        <div class="modal">
+                          <!-- Close Button -->
+                          <div class="modal-close" onclick="closeModal()">
+                            ✖
+                          </div>
+
+                          <!-- Modal Title -->
+                          <div class="modal-title">
+                            <h1>
+                              Truck overturns on NLEX northbound lane, causes
+                              heavy traffic
+                            </h1>
+                          </div>
+
+                          <!-- Modal Content -->
+                          <div class="modal-content">
+                            <img src="News/Nlex.png" alt="News">
+                            <h6>
+                              Scoured By:
+                              https://newsinfo.inquirer.net/2030879/truck-overturns-on-nlex-northbound-lane-causes-heavy-traffic
+                            </h6>
+                            <p>
+                              MANILA, Philippines — A cargo truck overturned on
+                              the northbound lane of the North Luzon Expressway
+                              (NLEX) in Meycauayan, Bulacan, on Monday morning,
+                              causing heavy traffic. A Facebook video posted by
+                              Genaro Ubiadas Baloloy showed the truck spilling
+                              its cargo of boxes onto the road. The incident
+                              occurred at around 6 a.m., leading to a traffic
+                              slowdown.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-item swiper-slide" id="freelancer">
+                    <img
+                      src="News/Plane.png"
+                      alt="Freelancer"
+                      class="card-image"
+                    />
+                    <div class="card-details">
+                      <h3 class="card-title">News</h3>
+                      <p class="card-description">
+                        Training plane lands in open field in Bulacan; none
+                        harmed
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      </p>
+                      <button class="card-button" data-modal="modal-3">
+                        Read More
+                      </button>
+
+                      <!-- Modal (This will be moved inside <body>) -->
+                      <div id="modal-3" class="modal-overlay">
+                        <div class="modal">
+                          <!-- Close Button -->
+                          <div class="modal-close" onclick="closeModal()">
+                            ✖
+                          </div>
+
+                          <!-- Modal Title -->
+                          <div class="modal-title">
+                            <h1>
+                              Truck overturns on NLEX northbound lane, causes
+                              heavy traffic
+                            </h1>
+                          </div>
+
+                          <!-- Modal Content -->
+                          <div class="modal-content">
+                            <img src="News/Plane.png" alt="News">
+                            <h6>
+                              Scoured By:
+                              https://newsinfo.inquirer.net/2030879/truck-overturns-on-nlex-northbound-lane-causes-heavy-traffic
+                            </h6>
+                            <p>
+                              MANILA, Philippines — A cargo truck overturned on
+                              the northbound lane of the North Luzon Expressway
+                              (NLEX) in Meycauayan, Bulacan, on Monday morning,
+                              causing heavy traffic. A Facebook video posted by
+                              Genaro Ubiadas Baloloy showed the truck spilling
+                              its cargo of boxes onto the road. The incident
+                              occurred at around 6 a.m., leading to a traffic
+                              slowdown.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-item swiper-slide" id="gamer">
+                    <img src="News/hit.png" alt="Gamer" class="card-image">
+                    <div class="card-details">
+                      <h3 class="card-title">News</h3>
+                      <p class="card-description">
+                        Truck overturns on NLEX northbound lane, causes heavy
+                        traffic
+                      </p>
+                      <button class="card-button" data-modal="modal-4">
+                        Read More
+                      </button>
+
+                      <!-- Modal (This will be moved inside <body>) -->
+                      <div id="modal-4" class="modal-overlay">
+                        <div class="modal">
+                          <!-- Close Button -->
+                          <div class="modal-close" onclick="closeModal()">
+                            ✖
+                          </div>
+
+                          <!-- Modal Title -->
+                          <div class="modal-title">
+                            <h1>
+                              Truck overturns on NLEX northbound lane, causes
+                              heavy traffic
+                            </h1>
+                          </div>
+
+                          <!-- Modal Content -->
+                          <div class="modal-content">
+                            <img src="News/hit.png" alt="News">
+                            <h6>
+                              Scoured By:
+                              https://www.gmanetwork.com/regionaltv/news/106114/traffic-enforcer-hit-by-car-while-on-duty-in-bulacan/story/
+                            </h6>
+                            <p>
+                              A traffic enforcer was hit by a multi-purpose
+                              vehicle (MPV) while on duty at an intersection in
+                              Santa Maria, Bulacan. Closed circuit television
+                              (CCTV) footage shows the MPV speeding and suddenly
+                              hitting traffic enforcer Salvador Dela Cruz, Jr.
+                              who was standing at the intersection. The impact
+                              knocked the enforcer off his post. He was rushed
+                              to the hospital for treatment. Initial
+                              investigation by the Santa Maria Traffic
+                              Management Office revealed that the MPV driver was
+                              experiencing fatigue from a trip to Manila. The
+                              driver was arrested and is facing charges but
+                              declined to give a statement.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-item swiper-slide" id="researcher">
+                    <img
+                      src="News/marbil.jpg"
+                      alt="Researcher"
+                      class="card-image"
+                    />
+                    <div class="card-details">
+                      <h3 class="card-title">News</h3>
+                      <p class="card-description">
+                        PNP defends convoy on EDSA busway amid controversy – Chief denies involvement
+                      </p>
+                      <button class="card-button" data-modal="modal-5">
+                        Read More
+                      </button>
+
+                      <!-- Modal (This will be moved inside <body>) -->
+                      <div id="modal-5" class="modal-overlay">
+                        <div class="modal">
+                          <!-- Close Button -->
+                          <div class="modal-close" onclick="closeModal()">
+                            ✖
+                          </div>
+
+                          <!-- Modal Title -->
+                          <div class="modal-title">
+                            <h1>
+                              PNP defends convoy on EDSA busway amid controversy – Chief denies involvement
+                            </h1>
+                          </div>
+
+                          <!-- Modal Content -->
+                          <div class="modal-content">
+                            <img src="News/marbil.jpg" alt="News">
+                            <h6>
+                              Scoured By:
+                              https://www.brigadanews.ph/pnp-defends-convoy-on-edsa-busway-amid-controversy-chief-denies-involvement/
+                            <p>
+                              The Philippine National Police (PNP) denied that the convoy apprehended by the Special Action and Intelligence Committee on Transportation (SAICT) belonged to PNP Chief, Police General Rommel Francisco Marbil.
+
+According to Police Brig. Gen. Jean Fajardo, spokesperson and Police Regional Office 3 director, the convoy was carrying a high-ranking PNP official handling a sensitive position. However, the police chose not to disclose the official’s identity due to security reasons.
+
+Amid public scrutiny, PNP Chief Marbil defended the convoy’s use of the EDSA Busway, stating it was due to an emergency. He explained that senior officers needed to attend a closed-door meeting in Camp Crame for a critical operation.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-pagination"></div>
+              <div class="slider-button swiper-button-prev"></div>
+              <div class="slider-button swiper-button-next"></div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script src="scroll.js"></script>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <button class="Home" onclick="location.href='main.html'">
+          <i class="fa-solid fa-house" style="color: #ffffff"></i>
+        </button>
+        <button class="Bus" onclick="location.href='livelocation.html'">
+          <i class="fa-solid fa-bus" style="color: #ffffff"></i>
+        </button>
+
+        <button class="Notice" onclick="location.href='Notification.html'">
+          <i class="fa-solid fa-bell" style="color: #ffffff"></i>
+        </button>
+
+        <button class="Account" onclick="location.href='User_account.html'">
+          <i class="fa-solid fa-user" style="color: #ffffff"></i>
+        </button>
+      </footer>
+    </div>
+  </body>
+</html>

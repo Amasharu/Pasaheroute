@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK TRIP | PASAHEROUTE</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="livelocation.css" />
+    <link rel="icon" type="Web/Icon" href="Image/Web_Icon.png" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+      <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+    <!-- <script src="Idle.js"></script> -->
+    <!-- <script src="logout.js"></script> -->
+    <script src="mapmodal1.js"></script>
+    <script src="mapmodal2.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="header">
+        <div class="logo-container">
+          <div class="logo">
+            <a href="main.html"><img src="Image/logo.png" alt="logo" /></a>
+          </div>
+          <div class="logo_name">PASAHEROUTE</div>
+        </div>
+        <div class="navigation">
+          <nav>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="livelocation.html">Live Location</a></li>
+              <li><a href="Notification.html">Notification</a></li>
+              <li><a href="User_account.html">Account</a></li>
+            </ul>
+          </nav>
+          <button class="Logout-button" id="logoutBtn">Log Out</button>
+        </div>
+      </header>
+      <main class="book-content">
+        <div class="book-contain">
+          <div class="text-book">
+            <h1>Live Location</h1>
+          </div>
+          <div class="trips">
+            <div class="trip">
+              <div class="transit-card">
+                <div class="card-header">
+                  <img
+                    src="Image/transitpoint.png"
+                    alt="TransitPoint Logo"
+                    class="transit-logo"
+                  />
+                  <span class="transit-brand">TransitPoint</span>
+                  <h2 class="card-price">₱ 200</h2>
+                </div>
+
+                <div class="card-details">
+                  <div class="card-column">
+                      <h2>2:20pm</h2>
+                      <p>Walter (Guiginto)</p>
+                      <div class="traveler-info">
+                          <i class="fa-thin fa-user" style="color: #959697;"></i> Passenger<span>15/30</span>
+                      </div>
+                  </div>
+              
+                  <div class="card-column card-center">
+                      <p class="travel-duration">Travel Time</p>
+                      <span class="travel-time-box">1H & 20mins</span>
+                      <h3>1:50pm</h3>
+                      <p>Incoming Bus</p>
+                  </div>
+              
+                  <div class="card-column">
+                      <h2>3:40pm</h2>
+                      <p>Tinoma (Quezon City)</p>
+                  </div>
+              </div>
+              
+              <div class="card-footer">
+                  <a href="#" class="btn-book1">View Location</a>
+              </div>
+                </div>
+                <!-- MODAL 1 -->
+                <div id="bookingModal" class="modal1">
+                  <div class="modal-content">
+                    <span class="close1">&times;</span>
+                    <h2>Book Your Trip</h2>
+                    <div id="map" style="width: 100%; height: 300px;"></div>
+                  </div>
+                </div>
+
+
+                <div class="transit-card">
+                  <div class="card-header">
+                    <img
+                      src="Image/waypoint.png"
+                      alt="WayPoint Logo"
+                      class="transit-logo"
+                    />
+                    <span class="transit-brand">WayPoint</span>
+                    <h2 class="card-price">₱ 200</h2>
+                  </div>
+  
+                  <div class="card-details">
+                    <div class="card-column">
+                        <h2>5:00pm</h2>
+                        <p>Tinoma (Quezon City)</p>
+                        <div class="traveler-info">
+                            <i class="fa-thin fa-user" style="color: #959697;"></i> Passenger <span>15/30</span>
+                        </div>
+                    </div>
+                
+                    <div class="card-column card-center">
+                        <p class="travel-duration">Travel Time</p>
+                        <span class="travel-time-box">1H & 20mins</span>
+                        <h3>4:30pm</h3>
+                        <p>Incoming Bus</p>
+                    </div>
+                
+                    <div class="card-column">
+                        <h2>6:25pm</h2>
+                        <p>Walter (Guiginto)</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn-book2">View Location</a>
+                </div>
+                                <!-- MODAL 2 -->
+                                <div id="bookingModal" class="modal2">
+                                  <div class="modal-content">
+                                    <span class="close2">&times;</span>
+                                    <h2>Book Your Trip</h2>
+                                    <div id="map" style="width: 100%; height: 300px;"></div>
+                                  </div>
+                                </div>
+
+
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <button class="Home" onclick="location.href='main.html'">
+          <i class="fa-solid fa-house" style="color: #ffffff"></i>
+        </button>
+        <button class="Bus" onclick="location.href='livelocation.html'">
+          <i class="fa-solid fa-bus" style="color: #ffffff"></i>
+        </button>
+
+        <button class="Notice" onclick="location.href='Notification.html'">
+          <i class="fa-solid fa-bell" style="color: #ffffff"></i>
+        </button>
+
+        <button class="Account" onclick="location.href='User_account.html'">
+          <i class="fa-solid fa-user" style="color: #ffffff"></i>
+        </button>
+      </footer>
+    </div>
+  </body>
+</html>

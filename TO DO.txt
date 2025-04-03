@@ -1,0 +1,88 @@
+To do:
+
+Account:
+-kaya makapag save ng mga bago account(backen)
+kaya masave ng profile picture at info ng user at mag ssave sa backend or vice versa ttignan ng user ang account sa web
+
+-kaya madisplay yung inf pero kaya lang ng user mag lagay or mag edit ng info sa (Birthday: Contact Number: Address:)
+Load:
+-kapag nag input ng load ay mappunta sa account(Backend file)
+
+Book Trip:
+-Dynamic yung calculation ng time at ng passenger seat available
+
+Notification:
+dito mag rregister yung notif sa user kapag (frontend <->backend):
+
+-kapag nakabayad na or interruption at hindi pa nakakapag bayad or kulang ang load ng user 
+(icclick para makapag bayad)
+(terminate the trans after a minute)
+
+
+Transaction:
+-dito mag register yung time at control number kapag successful payment(kunwari lang para mapara madali sa control number)
+
+-dito din makkita yung qr code [click the successful payment to show qr code para mascan ng hardware(mag ssend ng file papunta sa sever)]
+
+Main Page:
+Makikita dun yung balance ng user
+
+
+Token
+-para sa logout at idle ng web para maglogout
+
+Hosting Ng Website
+
+MQTT
+Key Features of the Updated Code:
+MQTT Integration:
+
+mqtt.connect: Connects to an MQTT broker (replace 'wss://your-mqtt-broker-url' with your actual broker URL).
+
+mqttClient.subscribe: Subscribes to a topic (vehicle/location) where the vehicle's location data is published.
+
+mqttClient.on('message'): Listens for incoming messages containing vehicle location data, which is parsed and used to update the vehicle marker on the map.
+
+Vehicle Marker Updates:
+
+When new location data is received from MQTT, the position of the vehicle marker on the map is updated with the latest coordinates.
+
+Reverse Geocoding:
+
+After each location update, the reverse geocoding API is used to find the current road name and update the real-time travel info panel.
+
+MQTT Error Handling & Reconnection:
+
+The MQTT client automatically attempts to reconnect every time the connection is lost (using reconnectPeriod), ensuring that the vehicle data continues to flow without interruptions.
+
+MQTT Broker Setup:
+You need to have a running MQTT broker, such as:
+
+Mosquitto (open-source MQTT broker)
+
+AWS IoT, HiveMQ, or EMQX (cloud-based solutions)
+
+The backend hardware (vehicle) will need to publish its GPS data (latitude, longitude) to the MQTT broker on the vehicle/location topic. The format of the message can be something like:
+
+json
+Copy
+{
+  "lat": 14.123456,
+  "lon": 120.654321
+}
+Additional Notes:
+Error Handling: The MQTT client automatically tries to reconnect if the connection fails, which ensures that data transmission continues even if there's an issue with the network.
+
+Real-time Updates: This setup ensures the map updates the vehicle's position and road name in real-time as long as the connection remains stable.
+
+This setup provides a robust solution for integrating real-time vehicle tracking with Mapbox, MQTT, and Mapbox's reverse geocoding to dynamically display the vehicle's position, travel time, and the road it is on.
+
+
+
+
+Recomendation
+(Kung kaya pa gawin)
+Mag ssend ng notif thru text sa user:
+-Kapag nka pag bayad
+-Ma nnotif kapag malapit na ang bus sa destination
+-Mag ttext ulit for last call sa user na aalis na ang bus
