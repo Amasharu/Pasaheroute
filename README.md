@@ -6,7 +6,7 @@
 
 <h2>🚀 Demo</h2>
 
-[Local Host Only](Local Host Only)
+(Local Host Only)
 
 <h2>Project Screenshots:</h2>
 
