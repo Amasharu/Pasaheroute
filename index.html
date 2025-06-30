@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Data to WFA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #response {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Data to WFA</h1>
+
+    <button id="sendDataButton">Send Data</button>
+
+    <div id="reply"></div>
+
+    <script>
+        document.getElementById('sendDataButton').addEventListener('click', function () {
+            var userData = {
+                "classification": "regular",
+                "firstName": "Jaztine",
+                "lastName": "Valenzuela",
+                "birthday": "2002-10-26",
+                "email": "jaztinev@gmail.com",
+                "phone": "09352321985",
+                "password": "qwer123",
+                "load_balance": 0
+            };
+    
+            fetch('http://localhost:8080/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Extract and display only the response value ("success" or "fail")
+                document.getElementById('reply').innerText = data.response;
+            })
+            .catch(error => {
+                document.getElementById('reply').innerText = 'Error: ' + error;
+            });
+        });
+    </script>
+    
+</body>
+</html>

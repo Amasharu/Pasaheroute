@@ -34,9 +34,10 @@ body {
 }
 
 .acc_con {
+  margin-top: 2rem;
   display: flex;
-  width: 100rem;
-  height: 40rem;
+  width: 80rem;
+  height: 33rem;
   background-color: white;
   border-radius: 20px;
   box-shadow: 14px 14px 8px -6px rgba(0, 0, 0, 0.36);

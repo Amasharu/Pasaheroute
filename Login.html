@@ -6,7 +6,6 @@
     <title>Login| PASAHEROUTE</title>
     <link rel="stylesheet" href="Login.css" />
     <link rel="icon" type="Web/Icon" href="Image/Web_Icon.png" />
-    <script src="Account.js"></script>
   </head>
   <body>
     <div class="form-box">
@@ -19,14 +18,69 @@
         <span class="title">Log In</span>
         <span class="subtitle">Login account with your email address.</span>
         <div class="form-container">
-          <input type="email" class="input" placeholder="Email" />
-          <input type="password" class="input" placeholder="Password" />
+          <input type="email" id="email" class="input" placeholder="Email" />
+          <input type="password" id="password" class="input" placeholder="Password" />
         </div>
         <button>Login</button>
+        <div id="reply"></div>
       </form>
       <div class="form-section">
         <p>Create an account?&nbsp; <a href="SignUp.html">Sign Up</a></p>
       </div>
     </div>
+  
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector(".form");
+      
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Get values from the inputs
+        const emailInput = document.querySelector("#email");
+        const passwordInput = document.querySelector("#password");
+
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        
+        // Validate input
+        if (!email || !password) {
+          document.getElementById("reply").innerText = "Please enter both email and password.";
+          return;
+        }
+
+        const data = {
+          action: "login",
+          username: email,
+          password: password
+        };
+
+        try {
+          const response = await fetch("http://localhost:8080/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.response === "success") {
+            alert("Login successful!");
+            localStorage.setItem("email", email); // Store the email
+            window.location.href = "main.html";  // Redirect to main page
+          } else {
+            alert("Login failed! Invalid email or password.");
+            document.getElementById("reply").innerText = "Invalid email or password.";
+          }
+        } catch (error) {
+          alert("An error occurred: " + error.message);
+          document.getElementById("reply").innerText = "Error: " + error.message;
+        }
+      });
+    });
+    </script>
+
   </body>
 </html>

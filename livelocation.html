@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOK TRIP | PASAHEROUTE</title>
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="livelocation.css" />
+    <link rel="stylesheet" href="booktrip.css" />
     <link rel="icon" type="Web/Icon" href="Image/Web_Icon.png" />
     <link
     rel="stylesheet"
@@ -16,12 +16,13 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-
-    <!-- <script src="Idle.js"></script> -->
-    <!-- <script src="logout.js"></script> -->
     <script src="mapmodal1.js"></script>
     <script src="mapmodal2.js"></script>
+    <script src="popover1.js"></script>
+    <script src="passenger_count.js"></script>
+    <script src="logout.js"></script>
   </head>
   <body>
     <div class="app-container">
@@ -59,15 +60,15 @@
                     class="transit-logo"
                   />
                   <span class="transit-brand">TransitPoint</span>
-                  <h2 class="card-price">₱ 200</h2>
+                  <h2 class="card-price">₱ 70</h2>
                 </div>
 
                 <div class="card-details">
                   <div class="card-column">
                       <h2>2:20pm</h2>
-                      <p>Walter (Guiginto)</p>
+                      <p>Trinoma (Quezon City)</p>
                       <div class="traveler-info">
-                          <i class="fa-thin fa-user" style="color: #959697;"></i> Passenger<span>15/30</span>
+                          <i class="fa-thin fa-user" style="color: #959697;"></i> Passenger<span class="add_1">/10</span>
                       </div>
                   </div>
               
@@ -80,19 +81,19 @@
               
                   <div class="card-column">
                       <h2>3:40pm</h2>
-                      <p>Tinoma (Quezon City)</p>
+                      <p>Walter (Guiguinto)</p>
                   </div>
               </div>
               
               <div class="card-footer">
-                  <a href="#" class="btn-book1">View Location</a>
+                <a href="#" class="btn-book1" id="bookBtn">View</a>
               </div>
                 </div>
                 <!-- MODAL 1 -->
                 <div id="bookingModal" class="modal1">
                   <div class="modal-content">
                     <span class="close1">&times;</span>
-                    <h2>Book Your Trip</h2>
+                    <h2>Live Location &nbsp&nbsp</h2> 
                     <div id="map" style="width: 100%; height: 300px;"></div>
                   </div>
                 </div>
@@ -106,15 +107,15 @@
                       class="transit-logo"
                     />
                     <span class="transit-brand">WayPoint</span>
-                    <h2 class="card-price">₱ 200</h2>
+                    <h2 class="card-price">₱ 70</h2>
                   </div>
   
                   <div class="card-details">
                     <div class="card-column">
                         <h2>5:00pm</h2>
-                        <p>Tinoma (Quezon City)</p>
+                        <p>Walter (Guiguinto)</p>
                         <div class="traveler-info">
-                            <i class="fa-thin fa-user" style="color: #959697;"></i> Passenger <span>15/30</span>
+                            <i class="fa-thin fa-user" style="color: #959697;"></i> Passenger <span class="add_2">/10</span>
                         </div>
                     </div>
                 
@@ -127,11 +128,11 @@
                 
                     <div class="card-column">
                         <h2>6:25pm</h2>
-                        <p>Walter (Guiginto)</p>
+                        <p>Trinoma (Quezon City)</p>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="#" class="btn-book2">View Location</a>
+                    <a href="#" class="btn-book2">View</a>
                 </div>
                                 <!-- MODAL 2 -->
                                 <div id="bookingModal" class="modal2">

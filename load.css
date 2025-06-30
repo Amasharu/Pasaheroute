@@ -120,10 +120,17 @@ input {
   .quick-buttons {
     grid-template-columns: repeat(2, 1fr);
   }
+
+
 }
 
 @media (max-width: 768px) {
   .load-contain {
     height: 600px;
+  }
+
+  input {
+    margin: 0;
+    padding: 0;
   }
 }

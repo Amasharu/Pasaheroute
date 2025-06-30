@@ -11,9 +11,9 @@
     />
     <link rel="stylesheet" href="User_account.css" />
     <link rel="stylesheet" href="main.css" />
-    <!-- <script src="Idle.js"></script> -->
-    <script src="logout.js"></script>
     <script src="profile.js"></script>
+    <script src="logout.js"></script>
+    <script src="User_account.js"></script>
   </head>
   <body>
     <div class="app-container">
@@ -30,7 +30,7 @@
               <li><a href="main.html">Home</a></li>
               <li><a href="livelocation.html">Live Location</a></li>
               <li><a href="Notification.html">Notification</a></li>
-              <li><a href="User_account.html">Account</a></li>
+              <li id="accountButton"><a href="User_account.html">Account</a></li>
             </ul>
           </nav>
           <button class="Logout-button" id="logoutBtn">Log Out</button>
@@ -88,7 +88,7 @@
                 <input
                   type="date"
                   class="input"
-                  placeholder="Email"
+                  placeholder="Birthday"
                   value=""
                   readonly
                 />
@@ -104,20 +104,20 @@
                 />
               </div>
               <div class="grid-item">
-                <h3>Address:</h3>
+                <h3>Classification:</h3>
                 <input
                   type="text"
                   class="input"
-                  placeholder="Address"
+                  placeholder="Classification"
                   value=""
                   readonly
                 />
               </div>
             </div>
-            <div class="function_button">
+            <!-- <div class="function_button">
               <button class="Edit">Edit</button>
               <button class="Save">Save</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </main>

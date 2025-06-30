@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
     mapboxgl.accessToken =
       "pk.eyJ1IjoiYW1hc2hhcnUiLCJhIjoiY204cmY4am1vMHV3ZjJqczhjcWpueGFhaSJ9.EpsIRkNxnpw4i8w1oSOQYw";
 
-    const start = [120.87383, 14.828492]; // Example start point
-    const end = [121.035315, 14.653648]; // Example end point
+    var start = [120.87383, 14.828492]; // Example start point
+    var end = [121.035315, 14.653648]; // Example end point
 
     let map = new mapboxgl.Map({
       container: container,
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Vehicle Marker (Initial position set to Start)
     let vehicleMarker = new mapboxgl.Marker({ color: "green" })
-      .setLngLat(start)
+      .setLngLat(start) // Initial position
       .addTo(map)
       .setPopup(new mapboxgl.Popup().setText("Vehicle Location"));
 
@@ -89,8 +89,44 @@ document.addEventListener("DOMContentLoaded", function () {
     // Fetch and display the route along with real-time travel info
     fetchRoute(map, start, end);
 
-    // MQTT Client Setup
-    const mqttClient = setupMQTTClient(vehicleMarker, map, start, end);
+    // Function to fetch the latest GPS data
+    function fetchLatestGPS() {
+      fetch("http://localhost:8080/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: "latest_gps" })
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Latest GPS:", data);
+        if (data.Latitude && data.Longitude) {
+          // Convert fetched data to correct format (degrees and direction)
+          const latitude = convertCoordinate(data.Latitude, data.LatDir);
+          const longitude = convertCoordinate(data.Longitude, data.LongDir);
+          const vehicleLocation = [longitude, latitude];
+
+          // Update the vehicle marker position with the latest GPS coordinates
+          vehicleMarker.setLngLat(vehicleLocation);
+
+          // Optionally, update the road name and travel time using reverse geocode
+          updateCurrentRoadName(map, vehicleLocation, start, end);
+        }
+      })
+      .catch(err => console.error("Error fetching GPS data:", err));
+    }
+
+    // Convert coordinate based on direction (N/S for Latitude and E/W for Longitude)
+    function convertCoordinate(coordinate, direction) {
+      let degrees = parseFloat(coordinate);
+      if (direction === 'S' || direction === 'W') {
+        degrees = -degrees; // Negate for South or West
+      }
+      return degrees;
+    }
+
+    // Fetch immediately and then every 3 seconds
+    fetchLatestGPS();
+    setInterval(fetchLatestGPS, 3000);
   }
 
   function fetchRoute(map, start, end) {
@@ -110,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
           infoPanel.innerHTML = `        
               <div id="info-content">
                 <h3>Real-time Travel Info</h3>
-                <p><strong>Current Road:</strong> <span id="current-road">${roadName}</span></p>
+                <p><strong>Current Road:</strong> <span id="current-road">Loading...</span></p>
                 <p><strong>Estimated Travel Time:</strong> <span id="travel-time">${travelTime} mins</span></p>
               </div>
             `;
@@ -172,49 +208,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error fetching route:", error));
   }
 
-  // Setup MQTT client
-  function setupMQTTClient(vehicleMarker, map, start, end) {
-    const mqttClient = mqtt.connect("wss://your-mqtt-broker-url", {
-      clientId: "vehicle-tracking-client",
-      clean: true,
-      reconnectPeriod: 1000, // Reconnect interval on failure
-    });
-
-    // Topic to subscribe to
-    const topic = "vehicle/location";
-
-    mqttClient.on("connect", function () {
-      console.log("Connected to MQTT broker");
-      mqttClient.subscribe(topic, function (err) {
-        if (!err) {
-          console.log("Subscribed to vehicle location topic");
-        }
-      });
-    });
-
-    // Handle incoming data (vehicle's location)
-    mqttClient.on("message", function (topic, message) {
-      const locationData = JSON.parse(message.toString());
-      if (locationData && locationData.lat && locationData.lon) {
-        const vehicleLocation = [locationData.lon, locationData.lat];
-
-        // Update vehicle marker position
-        vehicleMarker.setLngLat(vehicleLocation);
-
-        // Update current road name and travel time using reverse geocode
-        updateCurrentRoadName(map, vehicleLocation, start, end);
-      }
-    });
-
-    // Handle connection errors and retries
-    mqttClient.on("error", function (error) {
-      console.error("MQTT Connection Error:", error);
-      mqttClient.reconnect(); // Attempt to reconnect if connection fails
-    });
-
-    return mqttClient;
-  }
-
   function updateCurrentRoadName(map, vehicleLocation, start, end) {
     const reverseGeocodeURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${vehicleLocation[0]},${vehicleLocation[1]}.json?access_token=${mapboxgl.accessToken}`;
 
@@ -223,7 +216,28 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data.features && data.features.length > 0) {
           const roadName = data.features[0].text; // Get the road name from the response
-          document.getElementById("current-road").textContent = roadName; // Update road name dynamically
+          
+          // Ensure the element exists before updating its text content
+          let roadElement = document.getElementById("current-road");
+
+          if (!roadElement) {
+            // If the element doesn't exist, create it dynamically
+            roadElement = document.createElement("span");
+            roadElement.id = "current-road"; // Set the ID for the new element
+            roadElement.textContent = roadName; // Set the text content
+
+            // Ensure #info-content exists before appending
+            let infoContent = document.getElementById("info-content");
+            if (!infoContent) {
+              infoContent = document.createElement("div");
+              infoContent.id = "info-content";
+              infoContent.innerHTML = `<h3>Real-time Travel Info</h3><p><strong>Current Road:</strong> <span id="current-road">${roadName}</span></p>`;
+              document.getElementById("map-info").appendChild(infoContent);
+            }
+            infoContent.appendChild(roadElement); // Append the road element
+          } else {
+            roadElement.textContent = roadName; // Update road name dynamically
+          }
         }
       })
       .catch((error) => console.error("Error fetching road name:", error));

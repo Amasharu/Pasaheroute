@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BUY LOAD | PASAHEROUTE</title>
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="load.css     " />
+    <link rel="stylesheet" href="load.css" />
     <link rel="icon" type="Web/Icon" href="Image/Web_Icon.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <!-- <script src="Idle.js"></script> -->
-    <script src="logout.js"></script>
+    <script src="load.js"></script>
   </head>
   <body>
     <div class="app-container">
@@ -43,10 +42,12 @@
           <div class="load-index">
             <div class="container">
               <input
-                type="text"
-                id="amount"
-                placeholder="Enter amount (Min ₱10)"
-              />
+              type="number"
+              id="amount"
+              placeholder="Enter amount (Min ₱10)"
+              min="10"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+/>
 
               <div class="quick-buttons">
                 <button onclick="setAmount(10)">₱10</button>
