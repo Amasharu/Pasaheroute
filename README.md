@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Pasaheroute</h1>
 
-<p align="center"><img src="[https://socialify.git.ci/Amasharu/Pasaheroute/image?description=1&amp;font=Raleway&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Circuit+Board&amp;stargazers=1&amp;theme=Auto" alt="project-image](https://socialify.git.ci/Amasharu/Pasaheroute/image?custom_description=Thesis+for+the+%28Prototype+of+Pasaheroute%29%0APASAHEROUTE%3A+IOT-BASED+PASSENGER+QUEUING%2C+REAL-TIME+TRACKING%2C+AND+AUTOMATED+FARE+PAYMENT+SYSTEM+WITH+QR+AND+RFID+INTEGRATION+FOR+P2P+BUSES&custom_language=GitHub+Actions&description=1&font=Raleway&language=1&name=1&owner=1&pattern=Circuit+Board&stargazers=1&theme=Auto)"></p>
+<p align="center"><img src="https://socialify.git.ci/Amasharu/Pasaheroute/image?description=1&amp;font=Raleway&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Circuit+Board&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
 
 
 
