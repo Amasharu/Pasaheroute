@@ -43,13 +43,13 @@ Here're some of the project's best features:
 
 Technologies used in the project:
 
-*   Html
+*   HTML
 *   CSS
 *   JavaScript
 *   Node.js
 *   C++
 *   Mqtt Broker
-*   MySql
+*   MySQL
 
 <h2>🛡️ License:</h2>
 
