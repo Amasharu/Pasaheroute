@@ -55,7 +55,7 @@ Technologies used in the project:
 
 <h2>🛡️ License:</h2>
 
-This project is licensed under the Thesis Purposes
+This project was undertaken in alignment with research-based purposes and objectives.
 
 <h2>💖Like my work?</h2>
 
