@@ -56,3 +56,5 @@ Technologies used in the project:
 This project is licensed under the Thesis Purposes
 
 <h2>💖Like my work?</h2>
+
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️.
