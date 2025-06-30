@@ -10,7 +10,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="" alt="project-screenshot" width="400" height="400/">
+![imagealt](https://github.com/Amasharu/Pasaheroute/blob/78576e4bb57c3dd1930361fed6ea7d662704eebb/Screenshots/Screenshot%202025-06-30%20123620.png)
 
 <img src="" alt="project-screenshot" width="400" height="400/">
 
