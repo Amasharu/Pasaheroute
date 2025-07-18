@@ -49,6 +49,7 @@ Technologies used in the project:
 *   CSS
 *   JavaScript
 *   Node.js
+*   React
 *   C++
 *   Mqtt Broker
 *   MySQL
